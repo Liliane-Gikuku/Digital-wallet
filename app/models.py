@@ -1,19 +1,20 @@
 from django.db import models
+from datetime import datetime
 
 # Create your models here.
 class Customer(models.Model):
-    first_name=models.CharField(max_length=20)
-    last_name=models.CharField(max_length=20)
+    first_name=models.CharField(max_length=15)
+    last_name=models.CharField(max_length=15)
     address=models.TextField()
-    email=models.EmailField(max_length=254)
+    email=models.EmailField(max_length=25)
     phone_number=models.CharField(max_length=13)
     gender=models.CharField(max_length=10)
     age=models.PositiveSmallIntegerField()
     profile_picture = models.ImageField(default='default.jpg', upload_to='profile_pics')
     
 class Currency(models.Model):
-    country= models.CharField(max_length=30)
-    symbol= models.CharField(max_length=5)
+    country= models.CharField(max_length=15)
+    symbol= models.CharField(max_length=4)
     amount= models.BigIntegerField()
     
     
@@ -22,7 +23,7 @@ class Wallet(models.Model):
     customer = models.ForeignKey("Customer",on_delete=models.CASCADE,related_name='Wallet_customer')
     amount  = models.IntegerField()
     date_created = models.DateTimeField()
-    status = models.CharField(max_length=15)
+    status = models.CharField(max_length=9)
     currency = models.ForeignKey("Currency",on_delete=models.CASCADE,related_name='Wallet_currency')
     history = models.DateTimeField()
     pin = models.IntegerField()
@@ -30,33 +31,33 @@ class Wallet(models.Model):
 class Account(models.Model):
     account_name = models.CharField(max_length=20)
     account_number = models.IntegerField()
-    account_type = models.CharField(max_length=20)
+    account_type = models.CharField(max_length=13)
     account_balance = models.IntegerField()
     wallet = models.ForeignKey("Wallet",on_delete=models.CASCADE,related_name='Account_wallet')
     
 class Transaction(models.Model):
     message = models.CharField(max_length=100)
     wallet = models.ForeignKey("Wallet",on_delete=models.CASCADE,related_name='Transaction_wallet')
-    transaction_description = models.CharField(max_length=9)
+    transaction_description = models.CharField(max_length=50)
     transaction_amount = models.BigIntegerField()
     transaction_charge = models.IntegerField()
-    transaction_type = models.CharField(max_length=6)
+    transaction_type = models.CharField(max_length=15)
     receipt = models.ForeignKey("Receipt",on_delete=models.CASCADE,related_name='Transaction_receipt')
     origin_account = models.ForeignKey("Wallet", on_delete=models.CASCADE,related_name='Transaction_origin')
     destination_account = models.ForeignKey("Wallet", on_delete=models.CASCADE,related_name='Transaction_destination')
     
 class Card(models.Model):
     card_number= models.IntegerField()
-    card_type= models.CharField(max_length=20)
+    card_type= models.CharField(max_length=10)
     expiry_date = models.DateField()
     security_code = models.IntegerField()
     date_of_issue = models.DateTimeField()
     pin = models.IntegerField(null=True)
-    cardStatus = models.CharField(max_length=50, null=True)
+    cardStatus = models.CharField(max_length=9, null=True)
     signature = models.ImageField(null = True)
     wallet= models.ForeignKey("Wallet",on_delete=models.CASCADE,related_name='Card_wallet')
     account= models.ForeignKey("Account",on_delete=models.CASCADE,related_name='Card_account')
-    issuer= models.CharField(max_length=10)
+    issuer= models.CharField(max_length=15)
     
 class Thirdparty(models.Model):
     account= models.ForeignKey("Account",on_delete=models.CASCADE,related_name='Thirdparty_account')
@@ -73,7 +74,7 @@ class Notification(models.Model):
     title = models.CharField(max_length=20)
     
 class Receipt(models.Model):
-    receipt_type= models.CharField(max_length = 20)
+    receipt_type= models.CharField(max_length = 15)
     date = models.DateTimeField()
     receipt_number= models.IntegerField()
     amount= models.IntegerField()
