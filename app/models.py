@@ -78,9 +78,8 @@ class Receipt(models.Model):
     date = models.DateTimeField()
     receipt_number= models.IntegerField()
     amount= models.IntegerField()
-    transaction = models.ForeignKey("Transaction",on_delete=models.CASCADE,related_name='Thirdparty_transaction')
-    
     receipt_file = models.FileField()
+    
 class Loan(models.Model):
     loan_id = models.IntegerField()
     loan_type = models.CharField(max_length=15)
