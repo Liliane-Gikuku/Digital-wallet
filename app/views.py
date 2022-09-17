@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 
-from app.models import Account, Card, Currency, Customer, Notification, Thirdparty, Wallet, Transaction
+from app.models import Account, Card, Currency, Customer, Notification, Receipt, Thirdparty, Wallet, Transaction
 from .forms import AccountRegistrationForm, CardRegistrationForm, CurrencyRegistrationForm, CustomerRegistrationForm, LoanRegistrationForm, NotificationRegistrationForm, ReceiptRegistrationForm, RewardRegistrationForm, ThirdPartyRegistrationForm, TransactionRegistrationForm, WalletRegistrationForm
 
 # Create your views here.
@@ -142,4 +142,9 @@ def list_thirdparty(request):
 def list_notification(request):
     notifications=Notification.objects.all()
     return render(request,"myproject/notification_list.html",{"notifications":notifications})
+
+
+def list_receipt(request):
+    receipts=Receipt.objects.all()
+    return render(request,"myproject/receipt_list.html",{"receipts":receipts})
 
