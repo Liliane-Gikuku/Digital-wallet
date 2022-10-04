@@ -16,16 +16,20 @@
             color:#090F34;
             background-color:#42E0FF;  
             padding-right:2%;
-            width:45%;
+            width:100%;
         }
     </style>
 </head>
+
+<header>
     <table>
         <table class="table" style="width: 50rem;">
     <tr>
         <th>First name</th>
         <th>Age</th>
         <th>Email</th>
+        <th>Profile</th>
+        <th>Link/<th>
 
     </tr>
     {%for customer in customers%}
@@ -33,9 +37,12 @@
         <td>{{customer.first_name}}</td>
         <td>{{customer.age}}</td>
         <td>{{customer.email}}</td>
+        <td>{{customer.first_name}}</td>
+        <td><a href="{%url 'customer_profile' id=customer.id%}"> View Profile </a></td>
     </tr>
     {% endfor %}
 </table>
+</header>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

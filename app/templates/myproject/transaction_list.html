@@ -27,6 +27,7 @@
         <th>Wallet</th>
         <th>Description</th>
         <th>Amount</th>
+        <th>Link<th>
         
 
     </tr>
@@ -35,6 +36,7 @@
         <td>{{transaction.wallet}}</td>
         <td>{{transaction.wallet_description}}</td>
         <td>{{transaction.wallet_amount}}</td>
+        <td><a href="{%url 'transaction_profile' id=transaction.id%}"> View Transaction </a></td>
         
     </tr>
     {% endfor %}

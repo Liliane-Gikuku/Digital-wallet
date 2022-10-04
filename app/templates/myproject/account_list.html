@@ -26,6 +26,7 @@
         <th>Account name</th>
         <th>Account number</th>
         <th>Account balance</th>
+        <th>Link/<th>
 
     </tr>
     {%for account in accounts%}
@@ -33,6 +34,7 @@
         <td>{{account.account_name}}</td>
         <td>{{account.account_number}}</td>
         <td>{{account.account_balance}}</td>
+        <td><a href="{%url 'account_profile' id=account.id%}"> View Account </a></td>
     </tr>
     {% endfor %}
 </table>

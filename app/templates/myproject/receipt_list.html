@@ -27,6 +27,7 @@
         <th>date</th>
         <th>receipt_number</th>
         <th>amount</th>
+        <th>Link</th>
         
 
     </tr>
@@ -35,6 +36,7 @@
         <td>{{receipt.date}}</td>
         <td>{{receipt.receipt_number}}</td>
         <td>{{receipt.amount}}</td>
+        <td><a href="{%url 'receipt_profile' id=receipt.id%}"> View Receipt </a></td>
         
     </tr>
     {% endfor %}

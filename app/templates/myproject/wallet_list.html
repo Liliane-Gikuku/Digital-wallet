@@ -34,6 +34,7 @@
         <td>{{wallet.customer}}</td>
         <td>{{wallet.balance}}</td>
         <td>{{wallet.status}}</td>
+        <td><a href="{%url 'wallet_profile' id=wallet.id%}"> View wallet </a></td>
     </tr>
     {% endfor %}
 </table>

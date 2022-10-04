@@ -7,37 +7,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Document</title>
 
-    <style>
-        tr{
-            color:white;
-            background-color:#090F34;
-            
-        }
-        th{
-            color:#090F34;
-            background-color:#42E0FF;  
-            padding-right:2%;
-            width:45%;
-        }
-    </style>
 </head>
-<table>
-    <table>
-        <table class="table" style="width: 50rem;">
-        <th>Date</th>
-        <th>Receipt</th>
-        <th>Message</th>
-        
+<body>
+    <h1>{{customer.first_name}} {{customer.last_name}}</h1>
+    <img src="{{customer.profile_picture.url}}"/>
+    <h2>Gender:{{customer.gender}}</h2>
+    <h5>{{customer.address}}</h5>
+    <a href="{% url 'edit_profile' id=customer.id %}">Edit Profile</a>
 
-    </tr>
-    {%for notification in notifications%}
-    <tr>
-        <td>{{notification.date}}</td>
-        <td>{{notification.receipt}}</td>
-        <td>{{notification.message}}</td>
-    </tr>
-    {% endfor %}
-</table>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

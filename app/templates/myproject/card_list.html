@@ -26,13 +26,15 @@
         <th>Wallet</th>
         <th>Account</th>
         <th>Issuer</th>
+        <th>Link/<th>
 
     </tr>
-    {%for cad in cards%}
+    {%for card in cards%}
     <tr>
-        <td>{{cad.wallet}}</td>
-        <td>{{cad.account}}</td>
-        <td>{{cad.issuer}}</td>
+        <td>{{card.wallet}}</td>
+        <td>{{card.account}}</td>
+        <td>{{card.issuer}}</td>
+        <td><a href="{%url 'card_profile' id=card.id%}"> View Card </a></td>
     </tr>
     {% endfor %}
 </table>
