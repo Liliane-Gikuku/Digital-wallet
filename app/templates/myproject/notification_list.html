@@ -8,22 +8,40 @@
     <title>Document</title>
 
     <style>
-        tr{
-            color:white;
-            background-color:#090F34;
-            
-        }
-        th{
-            color:#090F34;
-            background-color:#42E0FF;  
-            padding-right:2%;
-            width:45%;
-        }
+        
+       
+        #table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            {% comment %} width: 100%; {% endcomment %}
+          }
+          th,td{
+            border: 1px solid #ddd;
+            padding: 8px;
+          }
+          tr {background-color: pink;}
+          tr:hover {background-color:#C5B4E3;}
+          th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #AA336A;
+            color: white;
+
+            font-weight:bold;
+          }
+          a{
+            color: blue;
+          }
+
+          a:hover{
+            color: #AA336A;
+          }
     </style>
 </head>
 <table>
     <table>
-        <table class="table" style="width: 50rem;">
+        <table class="table" style="width: 100rem;">
         <th>Date</th>
         <th>Receipt</th>
         <th>Message</th>

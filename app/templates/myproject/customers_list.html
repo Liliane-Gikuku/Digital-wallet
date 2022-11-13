@@ -30,14 +30,23 @@
             border: 1px solid #ddd;
             padding: 8px;
           }
-          tr {background-color: #C5B4E3;}
-          tr:hover {background-color:pink;}
+          tr {background-color: pink;}
+          tr:hover {background-color:#C5B4E3;}
           th {
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
             background-color: #AA336A;
             color: white;
+
+            font-weight:bold;
+          }
+          a{
+            color: blue;
+          }
+
+          a:hover{
+            color: #AA336A;
           }
     </style>
 </head>
@@ -50,7 +59,7 @@
         <th>Age</th>
         <th>Email</th>
         <th>Profile</th>
-        <th>Link/<th>
+        <th>Link<th>
 
     </tr>
     {%for customer in customers%}

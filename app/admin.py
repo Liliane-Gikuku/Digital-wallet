@@ -56,6 +56,8 @@ class CurrencyAdmin(admin.ModelAdmin):
     list_display=("country", "symbol","amount")
     searchFields=("country", "symbol","amount")
 admin.site.register(Currency,CurrencyAdmin)
+
+
     
 # class WalletAdmin(admin.ModelAdmin):
 #     list_display=("first_name", "last_name","address",)

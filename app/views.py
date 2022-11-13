@@ -260,3 +260,7 @@ def list_receipt(request):
     receipts=Receipt.objects.all()
     return render(request,"myproject/receipt_list.html",{"receipts":receipts})
 
+
+
+
+

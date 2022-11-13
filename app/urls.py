@@ -35,15 +35,4 @@ urlpatterns =[
     path("receipt/<int:id>/", receipt_profile, name="receipt_profile"),
     path("receipt/edit/<int:id>/", edit_receipt, name="edit_receipt"),
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-
 ]
